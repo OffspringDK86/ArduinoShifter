@@ -1,4 +1,6 @@
 #include <Joystick.h>
+
+#include <Joystick.h>
 //Define inputs
 #define joyButton1 9
 #define joyButton2 8
@@ -25,11 +27,13 @@ void loop() {
   int currentButton1State = !digitalRead(joyButton1);
   if(currentButton1State != lastButton1State) {
       Joystick.setButton (0, currentButton1State);
+      lastButton1State = currentButton1State;
     }
 
   int currentButton2State = !digitalRead(joyButton2);
   if(currentButton2State != lastButton2State) {
       Joystick.setButton (1, currentButton2State);
+      lastButton2State = currentButton2State;
     }
 
   //Pole Delay/Debounce
